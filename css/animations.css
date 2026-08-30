@@ -1,0 +1,170 @@
+/* =====================================================================
+   animations.css — motion & effects layer
+   Scroll-reveal system, the portrait glow-bloom reveal, shimmer text,
+   cursor-follow spotlight glow, marquee ticker, the cyber-mask/circuit
+   SVG motif, glitch flicker, neon button pulse, and text-reveal-mask
+   helper classes. Safe to remove: the site still looks complete without
+   it, just without motion.
+   ===================================================================== */
+
+/* reveal */
+.reveal{opacity:0; transform:translateY(24px); transition:opacity .7s var(--ease), transform .7s var(--ease);}
+.reveal.in{opacity:1; transform:translateY(0);}
+.stagger > * {transition-delay:calc(var(--i,0) * 80ms);}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+}
+/* ============ PORTRAIT GLOW-BLOOM REVEAL ============ */
+/* The hero photo is a real background-removed cutout, so there's no box to
+   "sweep" — the whole group (glow blobs + motif + photo) fades in as one
+   smooth unit, while the photo also rises/settles on top of that fade.
+   Deliberately pure CSS (no JS class-toggle): it plays automatically on
+   load and can never get stuck invisible if a script fails to run.
+   Fading the parent (rather than the glow blobs directly) means it never
+   fights the blobs' own perpetual glowPulse animation defined in style.css. */
+@keyframes heroWrapFadeIn{from{opacity:0;} to{opacity:1;}}
+@keyframes heroCutoutRiseIn{from{transform:translateY(18px) scale(0.96);} to{transform:translateY(0) scale(1);}}
+.hero-photo-wrap{animation:heroWrapFadeIn 1.2s ease-out 0.2s both;}
+.hero-cutout{animation:heroCutoutRiseIn 1.1s cubic-bezier(.16,.8,.24,1) 0.3s both;}
+
+/* text mask shimmer — a light sweep permanently cycling through headings */
+.shimmer-text{
+  background:linear-gradient(100deg, var(--text) 40%, var(--cyan) 50%, var(--text) 60%);
+  background-size:250% 100%;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:shimmer 5s linear infinite;
+}
+@keyframes shimmer{0%{background-position:200% 0;} 100%{background-position:-50% 0;}}
+
+/* cursor spotlight mask on interactive surfaces */
+.spotlight{position:relative; isolation:isolate;}
+.spotlight::before{
+  content:''; position:absolute; top:0; right:0; bottom:0; left:0; z-index:0; border-radius:inherit;
+  background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%), rgba(0,229,255,0.12), transparent 70%);
+  opacity:0; transition:opacity .3s;
+  pointer-events:none;
+}
+.spotlight:hover::before{opacity:1;}
+.spotlight > *{position:relative; z-index:1;}
+
+/* marquee ticker */
+.marquee{
+  overflow:hidden; border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+  padding:16px 0; background:var(--bg-elevated); white-space:nowrap;
+}
+.marquee-track{display:inline-flex; gap:48px; animation:marquee 26s linear infinite;}
+.marquee:hover .marquee-track{animation-play-state:paused;}
+.marquee span{
+  font-family:var(--font-mono); font-size:13px; letter-spacing:.08em; color:var(--text-faint);
+  display:inline-flex; align-items:center; gap:10px; text-transform:uppercase;
+}
+.marquee span::before{content:'◆'; color:var(--cyan); font-size:10px;}
+@keyframes marquee{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+/* vanilla-tilt glare tidy-up */
+[data-tilt]{transform-style:preserve-3d;}
+
+/* AOS-driven fade (kept distinct from .reveal so both libraries can coexist) */
+[data-aos]{transition-timing-function:var(--ease) !important;}
+/* if AOS's JS never loads, aos.css alone would leave these hidden forever —
+   this JS-set class removes that risk (see the AOS init block near the end) */
+html.no-aos [data-aos]{opacity:1 !important; transform:none !important;}
+
+/* ============ CYBER-MASK DECORATIVE MOTIF ============ */
+/* An original faceted "security mask" + circuit-trace graphic, drawn in CSS/SVG
+   rather than a photo, so it can sit behind the portrait and inside About as a
+   glowing, theme-matched watermark at any size without looking like a stock image. */
+.mask-motif{
+  position:absolute; top:0; right:0; bottom:0; left:0; z-index:0; pointer-events:none;
+  color:var(--cyan);
+}
+.mask-motif svg{width:100%; height:100%; overflow:visible;}
+.mask-motif .m-line{fill:none; stroke:currentColor; stroke-width:1; vector-effect:non-scaling-stroke;}
+.mask-motif .m-node{fill:currentColor;}
+.hero .mask-motif{opacity:0.5; animation:motifDrift 10s ease-in-out infinite;}
+.about-motif{
+  position:absolute; top:0; right:0; width:46%; height:100%; z-index:0;
+  opacity:0.16; color:var(--violet); pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 35%, #000 80%, transparent);
+  mask-image:linear-gradient(90deg, transparent, #000 35%, #000 80%, transparent);
+}
+.about-motif svg{width:100%; height:100%;}
+@keyframes motifDrift{0%,100%{opacity:0.4; transform:scale(1);} 50%{opacity:0.6; transform:scale(1.03);}}
+@media(max-width:880px){.about-motif{display:none;}}
+
+/* ============ GLITCH (used once, sparingly, on load) ============ */
+.glitch-once{position:relative; display:inline-block;}
+.glitch-once.play{animation:glitchFlicker 0.5s steps(2,jump-none) 1;}
+@keyframes glitchFlicker{
+  0%{text-shadow:none; transform:translate(0);}
+  20%{text-shadow:-2px 0 var(--cyan), 2px 0 var(--violet); transform:translate(-1px,0);}
+  40%{text-shadow:2px 0 var(--cyan), -2px 0 var(--violet); transform:translate(1px,0);}
+  60%{text-shadow:-1px 0 var(--violet), 1px 0 var(--cyan); transform:translate(0,1px);}
+  80%{text-shadow:1px 0 var(--cyan); transform:translate(0);}
+  100%{text-shadow:none; transform:translate(0);}
+}
+
+/* ============ NEON PULSE (subtle, premium — buttons + key headings) ============ */
+@keyframes neonPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(0,229,255,0.0), 0 4px 20px -6px rgba(0,229,255,0.35);}
+  50%{box-shadow:0 0 22px 2px rgba(0,229,255,0.22), 0 4px 20px -6px rgba(0,229,255,0.35);}
+}
+.btn-primary{animation:neonPulse 3.2s ease-in-out infinite;}
+.btn-primary:hover{animation-play-state:paused;}
+
+/* shine sweep on hover — a light diagonal highlight passes across the button */
+.btn::before{
+  content:''; position:absolute; top:0; right:0; bottom:0; left:0; z-index:-1;
+  background:linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.35) 50%, transparent 60%);
+  transform:translateX(-120%);
+  transition:transform .6s var(--ease);
+}
+.btn:hover::before{transform:translateX(120%);}
+.btn-outline::before{background:linear-gradient(115deg, transparent 40%, rgba(0,229,255,0.18) 50%, transparent 60%);}
+
+/* ============ TEXT REVEAL MASK (SplitType word/char stagger) ============ */
+.split-parent{overflow:hidden;}
+.word, .char{will-change:transform, opacity;}
+
+/* ============ BOOT SEQUENCE ============ */
+/* Hard safety net: dismisses via pure CSS at 2.4s no matter what, even with
+   zero JS running — the inline script in index.html only makes the happy
+   path faster/skippable. Never a risk of a stuck black screen. */
+.boot-overlay{
+  position:fixed; top:0; right:0; bottom:0; left:0; z-index:9999; background:var(--bg);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px;
+  font-family:var(--font-mono); cursor:pointer;
+  transition:opacity .5s ease, visibility .5s ease;
+  animation:bootHardDismiss 0.01s linear 2.4s forwards;
+}
+.boot-overlay.hide{opacity:0; visibility:hidden; pointer-events:none;}
+@keyframes bootHardDismiss{to{opacity:0; visibility:hidden; pointer-events:none;}}
+.boot-lines{display:flex; flex-direction:column; gap:10px; min-width:300px;}
+.boot-line{
+  opacity:0; color:var(--text-dim); font-size:13px; white-space:nowrap;
+  display:flex; justify-content:space-between; gap:20px;
+  animation:bootLineIn .3s ease forwards;
+}
+.boot-line:nth-child(1){animation-delay:.15s;}
+.boot-line:nth-child(2){animation-delay:.5s;}
+.boot-line:nth-child(3){animation-delay:.85s;}
+.boot-line.boot-final{animation-delay:1.2s; color:var(--cyan);}
+@keyframes bootLineIn{to{opacity:1;}}
+.boot-ok{color:var(--cyan); font-size:11px; margin-left:24px; flex-shrink:0;}
+.boot-bar{width:220px; height:2px; background:var(--border); overflow:hidden; border-radius:2px;}
+.boot-bar-fill{width:0%; height:100%; background:linear-gradient(90deg,var(--cyan),var(--violet)); animation:bootBarFill 1.3s ease forwards;}
+@keyframes bootBarFill{to{width:100%;}}
+.boot-skip{
+  font-size:11px; color:var(--text-faint); opacity:0; letter-spacing:.04em;
+  animation:bootLineIn .4s ease forwards; animation-delay:1.5s;
+}
+@media(prefers-reduced-motion:reduce){.boot-overlay{display:none;}}
+
+/* ============ SECTION NUMBER SCAN-GLOW ============ */
+/* A very subtle recurring glow pass on each "01 //" style section marker —
+   just enough to read as a live technical readout, not a flashy effect. */
+@keyframes numScan{0%,100%{text-shadow:0 0 0px rgba(124,92,255,0);} 50%{text-shadow:0 0 7px rgba(124,92,255,0.55);}}
+.sec-num{animation:numScan 3.5s ease-in-out infinite;}
+
+

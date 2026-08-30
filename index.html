@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anand Sekar | Cybersecurity Student &amp; Builder</title>
+<meta name="description" content="Cybersecurity Engineering student exploring ethical hacking, penetration testing, Linux, networking, Python, and hands-on security projects. Co-Founder of Cybroatrix and creator of TrustLink.">
+
+<meta property="og:title" content="Anand Sekar | Cybersecurity Student & Builder">
+<meta property="og:description" content="Cybersecurity Engineering student exploring ethical hacking, penetration testing, Linux, networking, Python, and hands-on security projects.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/anand.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23070B12%22 stroke=%22%2300E5FF%22 stroke-width=%224%22/><circle cx=%2250%22 cy=%2250%22 r=%228%22 fill=%22%2300E5FF%22/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Skeleton CSS — lightweight base grid/typography framework, loaded first so
+     the site's own design system (below) always cascades on top of it -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/normalize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
+<!-- Animation / effect libraries -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Anand Sekar",
+  "jobTitle": "Cybersecurity Student",
+  "url": "https://cybroatrix.com/",
+  "sameAs": [
+    "https://github.com/anandsekar-404",
+    "https://www.linkedin.com/in/anand1802",
+    "https://cybroatrix.com/"
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<!-- Boot sequence: a brief terminal-style intro fitting the cybersecurity theme.
+     Guaranteed to resolve even with zero JS (hard CSS animation dismisses it at
+     2.4s regardless) — the inline script below just makes the happy path nicer
+     (faster, skippable, skipped entirely on repeat views or reduced-motion). -->
+<div class="boot-overlay" id="bootOverlay" aria-hidden="true">
+  <div class="boot-lines">
+    <div class="boot-line">&gt; establishing secure session<span class="boot-ok">[ OK ]</span></div>
+    <div class="boot-line">&gt; loading modules: network, crypto, auth<span class="boot-ok">[ OK ]</span></div>
+    <div class="boot-line">&gt; verifying identity: anand_sekar<span class="boot-ok">[ OK ]</span></div>
+    <div class="boot-line boot-final">&gt; access granted_</div>
+  </div>
+  <div class="boot-bar"><div class="boot-bar-fill"></div></div>
+  <div class="boot-skip">click, or press any key, to skip</div>
+</div>
+<script>
+(function(){
+  var overlay = document.getElementById('bootOverlay');
+  if(!overlay) return;
+  var skip = window.matchMedia('(prefers-reduced-motion: reduce)').matches || sessionStorage.getItem('bootSeen');
+  if(skip){ overlay.style.display='none'; return; }
+  sessionStorage.setItem('bootSeen','1');
+  var dismissed = false;
+  function dismiss(){
+    if(dismissed) return;
+    dismissed = true;
+    overlay.classList.add('hide');
+    setTimeout(function(){ overlay.style.display='none'; }, 500);
+  }
+  setTimeout(dismiss, 1500);
+  overlay.addEventListener('click', dismiss);
+  window.addEventListener('keydown', dismiss, {once:true});
+})();
+</script>
+
+<div class="progress" id="progress"></div>
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class='bx bx-chevron-up'></i></button>
+
+<header>
+  <nav class="nav">
+    <a href="#home" class="brand"><span class="dot"></span>Anand Sekar</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" data-nav>Home</a></li>
+      <li><a href="#about" data-nav>About</a></li>
+      <li><a href="#skills" data-nav>Skills</a></li>
+      <li><a href="#projects" data-nav>Projects</a></li>
+      <li><a href="#learning" data-nav>Learning</a></li>
+      <li><a href="#education" data-nav>Education</a></li>
+      <li><a href="#certifications" data-nav>Certs</a></li>
+      <li><a href="#leadership" data-nav>Leadership</a></li>
+      <li><a href="#contact" data-nav>Contact</a></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<div class="scrim" id="scrim"></div>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <a href="#home" data-nav>Home</a>
+  <a href="#about" data-nav>About</a>
+  <a href="#skills" data-nav>Skills</a>
+  <a href="#projects" data-nav>Projects</a>
+  <a href="#learning" data-nav>Learning</a>
+  <a href="#education" data-nav>Education</a>
+  <a href="#certifications" data-nav>Certifications</a>
+  <a href="#leadership" data-nav>Leadership</a>
+  <a href="#contact" data-nav>Contact</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <canvas id="hero-canvas"></canvas>
+  <div class="wrap">
+    <div class="hero-grid-3">
+      <div class="hero-col hero-col-left reveal in">
+        <span class="hero-hello"><span class="pulse"></span>Hello, I'm</span>
+        <h1 class="hero-name" id="heroTitle">Anand<br>Sekar</h1>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <div class="mask-motif" aria-hidden="true">
+          <svg viewBox="0 0 400 460" preserveAspectRatio="xMidYMid meet">
+            <!-- faceted shield/mask emblem -->
+            <path class="m-line" d="M200,26 L308,88 L332,214 L292,336 L200,432 L108,336 L68,214 L92,88 Z" stroke-width="1.4" opacity="0.55"/>
+            <path class="m-line" d="M200,70 L270,110 L286,210 L258,306 L200,378 L142,306 L114,210 L130,110 Z" opacity="0.35"/>
+            <path class="m-line" d="M150,190 L182,204 L182,232 L150,246" opacity="0.5"/>
+            <path class="m-line" d="M250,190 L218,204 L218,232 L250,246" opacity="0.5"/>
+            <!-- circuit traces radiating outward -->
+            <path class="m-line" d="M68,214 L14,214 L14,150" opacity="0.45"/>
+            <path class="m-line" d="M332,214 L386,214 L386,290" opacity="0.45"/>
+            <path class="m-line" d="M92,88 L40,60" opacity="0.4"/>
+            <path class="m-line" d="M308,88 L362,58 L362,10" opacity="0.4"/>
+            <path class="m-line" d="M108,336 L48,366" opacity="0.4"/>
+            <path class="m-line" d="M292,336 L352,372 L352,420" opacity="0.4"/>
+            <circle class="m-node" cx="14" cy="150" r="3.5"/>
+            <circle class="m-node" cx="386" cy="290" r="3.5"/>
+            <circle class="m-node" cx="40" cy="60" r="3"/>
+            <circle class="m-node" cx="362" cy="10" r="3"/>
+            <circle class="m-node" cx="48" cy="366" r="3"/>
+            <circle class="m-node" cx="352" cy="420" r="3"/>
+            <circle class="m-node" cx="200" cy="26" r="3" opacity="0.6"/>
+            <circle class="m-node" cx="200" cy="432" r="3" opacity="0.6"/>
+          </svg>
+        </div>
+        <img src="assets/anand-cutout.png" alt="Portrait of Anand Sekar" class="hero-cutout" id="heroImg" data-tilt data-tilt-max="6" data-tilt-speed="700">
+      </div>
+
+      <div class="hero-col hero-col-right reveal in">
+        <span class="hero-hello"><i class='bx bxs-shield-alt-2'></i>Status</span>
+        <h2 class="hero-role grad">Cybersecurity Student<br>| Aspiring SOC Analyst</h2>
+      </div>
+    </div>
+
+    <div class="hero-bottom">
+      <p class="hero-tagline reveal in">Learning. Building. <span class="grad">Securing the Digital Future.</span></p>
+      <p class="hero-intro reveal in">I am Anand Sekar, a Cybersecurity Engineering student passionate about understanding how technology works, exploring cybersecurity, and building toward a career as a SOC Analyst. I am currently strengthening my foundations through Linux, networking, Python, TryHackMe, hands-on security exploration, and real-world projects.</p>
+      <div class="hero-focus reveal in">
+        <div class="hero-focus-label"><i class='bx bxs-shield-alt-2'></i>Cybersecurity Focus</div>
+        <div class="hero-focus-list">SOC &amp; Monitoring <span class="fdot">·</span> Network Security <span class="fdot">·</span> Web Security <span class="fdot">·</span> Phishing Detection <span class="fdot">·</span> Linux <span class="fdot">·</span> Threat Analysis <span class="fdot">·</span> CTF</div>
+      </div>
+      <div class="hero-terminal reveal in" aria-hidden="true"><span id="typedLine"></span><span class="term-cursor">▌</span></div>
+      <div class="hero-ctas reveal in">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="https://cybroatrix.com/" target="_blank" rel="noopener" class="btn btn-outline">Explore Cybroatrix</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span>Linux</span><span>Networking</span><span>Python</span><span>Ethical Hacking</span>
+    <span>Penetration Testing</span><span>TryHackMe</span><span>Kali Linux</span><span>Threat Detection</span>
+    <span>Cybroatrix</span><span>TrustLink</span>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="section-pad" id="about" style="background:var(--bg-elevated);">
+  <div class="about-motif" aria-hidden="true">
+    <svg viewBox="0 0 500 700" preserveAspectRatio="xMidYMid slice">
+      <path class="m-line" d="M480,40 L480,180 L400,180 L400,300 L460,300 L460,420" stroke-width="1.2"/>
+      <path class="m-line" d="M420,60 L340,60 L340,220 L280,220 L280,380 L360,380 L360,540" stroke-width="1.2"/>
+      <path class="m-line" d="M500,500 L440,500 L440,620 L380,620 L380,700" stroke-width="1.2"/>
+      <path class="m-line" d="M260,80 L200,80 L200,160" stroke-width="1.2"/>
+      <circle class="m-node" cx="480" cy="180" r="4"/><circle class="m-node" cx="400" cy="300" r="4"/>
+      <circle class="m-node" cx="340" cy="220" r="4"/><circle class="m-node" cx="280" cy="380" r="4"/>
+      <circle class="m-node" cx="360" cy="540" r="4"/><circle class="m-node" cx="440" cy="620" r="4"/>
+      <circle class="m-node" cx="200" cy="160" r="4"/><circle class="m-node" cx="460" cy="420" r="3"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow reveal"><i class='bx bx-user'></i><span class="sec-num">01 //</span>ABOUT</div>
+    <h2 class="section-title reveal">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I am a <strong>B.E. Computer Science and Engineering</strong> student specializing in <strong>Cyber Security</strong>, with a strong interest in understanding the digital world and protecting it. My journey into cybersecurity is driven by curiosity and excitement for how systems, networks, and security technologies work.</p>
+        <p>I am currently building my foundation through Linux, networking, Python, cybersecurity fundamentals, TryHackMe, and hands-on exploration. Alongside my personal learning journey, I am also a <strong>Co-Founder of Cybroatrix</strong>, a cybersecurity community created to connect interested learners, share knowledge, help beginners, and grow together.</p>
+        <p>My long-term goal is to become a <strong>SOC Analyst</strong>, building strong practical skills in security monitoring, threat detection, and incident response.</p>
+      </div>
+      <div class="highlight-cards reveal">
+        <div class="hcard"><span class="num">01</span><div class="label">Cybersecurity Engineering Student</div></div>
+        <div class="hcard"><span class="num">02</span><div class="label">Aspiring SOC Analyst</div></div>
+        <div class="hcard"><span class="num">03</span><div class="label">Quick Learner</div></div>
+        <div class="hcard"><span class="num">04</span><div class="label">Community Builder</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="section-pad" id="skills">
+  <div class="wrap">
+    <div class="eyebrow reveal"><i class='bx bx-wrench'></i><span class="sec-num">02 //</span>SKILLS</div>
+    <h2 class="section-title reveal">Skills</h2>
+    <p class="section-sub reveal">Organized honestly — what I use confidently, and what I'm actively exploring.</p>
+
+    <div class="skill-group reveal">
+      <h3>Programming &amp; Web</h3>
+      <div class="skill-chips">
+        <span class="chip">Python <span class="lvl" role="img" aria-label="Skill level: basic"><i class="on"></i><i></i><i></i></span></span>
+        <span class="chip">C <span class="lvl" role="img" aria-label="Skill level: basic"><i class="on"></i><i></i><i></i></span></span>
+      </div>
+    </div>
+
+    <div class="skill-group reveal">
+      <h3>Cybersecurity Foundations</h3>
+      <div class="skill-chips">
+        <span class="chip">Cybersecurity Fundamentals</span>
+        <span class="chip">Linux / Kali Linux</span>
+        <span class="chip">Basic Networking</span>
+        <span class="chip">IP Address Identification</span>
+        <span class="chip">MAC Address Identification</span>
+        <span class="chip">Security Concepts</span>
+        <span class="chip">TryHackMe Learning</span>
+      </div>
+    </div>
+
+    <div class="skill-group reveal">
+      <h3>Security Areas Explored <span style="text-transform:none;color:var(--text-faint);font-family:var(--font-body);font-size:12.5px;">(concepts &amp; exploration, not practical expertise)</span></h3>
+      <div class="skill-chips">
+        <span class="chip">Phishing-related Concepts</span>
+        <span class="chip">Session-related Concepts</span>
+        <span class="chip">Brute-force Concepts</span>
+        <span class="chip">Suspicious URL Analysis</span>
+        <span class="chip">Basic Threat Detection Concepts</span>
+      </div>
+    </div>
+
+    <div class="skill-group reveal">
+      <h3>Development &amp; Tools</h3>
+      <div class="skill-chips">
+        <span class="chip">AI-assisted Development</span>
+        <span class="chip">Website Management</span>
+        <span class="chip">Firebase</span>
+        <span class="chip">Cloud Firestore</span>
+        <span class="chip">Chrome Extensions</span>
+        <span class="chip">Manifest V3</span>
+        <span class="chip">Node.js Testing</span>
+        <span class="chip">Video Editing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section-pad" id="projects" style="background:var(--bg-elevated);">
+  <div class="wrap">
+    <div class="eyebrow reveal"><i class='bx bx-star'></i><span class="sec-num">03 //</span>PROJECTS</div>
+    <h2 class="section-title reveal">Projects</h2>
+    <p class="section-sub reveal">Real, in-progress work — built, tested, and iterated on with AI-assisted development.</p>
+
+    <!-- TrustLink -->
+    <article class="project-card reveal">
+      <div class="p-top">
+        <div>
+          <div class="p-cat">Cybersecurity Chrome Extension</div>
+          <div class="p-title shimmer-text">TrustLink</div>
+        </div>
+        <span class="p-status">Live on Chrome Web Store</span>
+      </div>
+      <p class="p-desc">TrustLink is a privacy-focused Chrome extension designed to help users make safer decisions before visiting potentially dangerous websites. It analyzes URLs, detects suspicious links and patterns, calculates risk scores, and warns users about potential threats.</p>
+
+      <div class="p-block">
+        <h4>Key Features</h4>
+        <ul class="p-list">
+          <li>URL analysis</li><li>Suspicious link detection</li><li>Risk scoring system</li>
+          <li>Phishing keyword detection</li><li>Suspicious URL pattern detection</li>
+          <li>Pre-visit warnings</li><li>Dangerous site blocking</li>
+        </ul>
+      </div>
+
+      <div class="p-block">
+        <h4>Technologies</h4>
+        <ul class="p-list">
+          <li>HTML5</li><li>CSS3</li><li>JavaScript (ES6+)</li><li>Chrome Extensions API</li>
+          <li>Manifest V3</li><li>Chrome Storage API</li><li>Firebase</li><li>Cloud Firestore</li>
+          <li>Node.js</li><li>Custom .mjs test files</li>
+        </ul>
+      </div>
+
+      <div class="p-block">
+        <h4>Security Approach</h4>
+        <ul class="p-list">
+          <li>Custom heuristic-based URL analysis</li><li>Phishing keyword detection</li>
+          <li>Suspicious pattern detection</li><li>Risk scoring</li><li>Dangerous site detection &amp; blocking</li>
+        </ul>
+      </div>
+
+      <p class="p-contrib">"Conceptualized TrustLink and led its product direction, visual design and animation direction, AI-assisted development prompting, error-scenario identification, testing, iteration, and overall project management."</p>
+
+      <div class="p-actions">
+        <span class="p-btn disabled">GitHub Repository — Coming Soon</span>
+        <a href="https://chromewebstore.google.com/detail/mgebfeaiidoehmcidmbbkpjpgdfemiob?utm_source=item-share-cb" target="_blank" rel="noopener" class="p-btn">Chrome Web Store ↗</a>
+      </div>
+    </article>
+
+    <!-- Cybroatrix -->
+    <article class="project-card reveal">
+      <div class="p-top">
+        <div>
+          <div class="p-cat">Cybersecurity Community &amp; Digital Platform</div>
+          <div class="p-title shimmer-text">Cybroatrix</div>
+        </div>
+        <span class="p-status">Newly Launched</span>
+      </div>
+      <p class="p-desc">Cybroatrix is a cybersecurity community created for learners and technology enthusiasts who want to grow together in the cybersecurity field. Not limited to a single college, it brings interested people together to learn, share resources, explore cybersecurity news, help beginners, participate in CTF-related activities, and organize future workshops and events.</p>
+
+      <div class="p-block">
+        <h4>Community Focus</h4>
+        <ul class="p-list">
+          <li>Learning together</li><li>Sharing resources</li><li>Helping beginners</li>
+          <li>Cybersecurity news</li><li>CTF-related activities</li><li>Future workshops</li><li>Future events</li>
+        </ul>
+      </div>
+
+      <div class="p-block">
+        <h4>Website Sections</h4>
+        <ul class="p-list">
+          <li>Home</li><li>About</li><li>CTF</li><li>Resources</li><li>Events</li><li>Workshops</li><li>Contact</li><li>Support</li>
+        </ul>
+      </div>
+
+      <div class="p-block">
+        <h4>Technologies</h4>
+        <ul class="p-list"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>AI-assisted development</li></ul>
+      </div>
+
+      <p class="p-contrib">"Co-founded Cybroatrix and helped establish its community and digital presence. Contributed to approaching and connecting interested cybersecurity learners, growing the community, learning alongside members, managing the website, and guiding AI-assisted development, customization, and iteration. Also contributed to branding and social content with AI assistance."</p>
+
+      <div class="p-actions">
+        <a href="https://cybroatrix.com/" target="_blank" rel="noopener" class="p-btn">Visit Cybroatrix ↗</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ LEARNING JOURNEY ============ -->
+<section class="section-pad" id="learning">
+  <div class="wrap">
+    <div class="eyebrow reveal"><i class='bx bx-trending-up'></i><span class="sec-num">04 //</span>LEARNING</div>
+    <h2 class="section-title reveal">Currently Learning &amp; Exploring</h2>
+    <p class="section-sub reveal">A live map of where my foundation stands today — not a finished skillset, a work in progress.</p>
+    <div class="journey-track">
+      <div class="journey-item done reveal"><div class="j-head"><span class="j-title">Cybersecurity Fundamentals</span><span class="j-tag tag-building">Building Foundation</span></div><p class="j-desc">Core concepts of confidentiality, integrity, availability, and common threat models.</p></div>
+      <div class="journey-item done reveal"><div class="j-head"><span class="j-title">Linux &amp; Kali Linux</span><span class="j-tag tag-building">Building Foundation</span></div><p class="j-desc">Command line fluency and getting comfortable inside a security-focused OS.</p></div>
+      <div class="journey-item done reveal"><div class="j-head"><span class="j-title">Networking Fundamentals</span><span class="j-tag tag-learning">Learning</span></div><p class="j-desc">IP/MAC addressing, protocols, and how data actually moves across a network.</p></div>
+      <div class="journey-item reveal"><div class="j-head"><span class="j-title">Python</span><span class="j-tag tag-learning">Learning</span></div><p class="j-desc">Scripting basics with an eye toward future security tooling.</p></div>
+      <div class="journey-item reveal"><div class="j-head"><span class="j-title">TryHackMe</span><span class="j-tag tag-learning">Learning</span></div><p class="j-desc">Working through guided rooms to build hands-on, practical intuition.</p></div>
+      <div class="journey-item reveal"><div class="j-head"><span class="j-title">Security Tools &amp; Concepts</span><span class="j-tag tag-exploring">Exploring</span></div><p class="j-desc">Getting familiar with the tools and vocabulary of the security world.</p></div>
+      <div class="journey-item reveal"><div class="j-head"><span class="j-title">Exploring New Technologies</span><span class="j-tag tag-exploring">Exploring</span></div><p class="j-desc">Staying curious beyond the syllabus — always testing something new.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section class="section-pad" id="education" style="background:var(--bg-elevated);">
+  <div class="wrap">
+    <div class="eyebrow reveal"><i class='bx bxs-graduation'></i><span class="sec-num">05 //</span>EDUCATION</div>
+    <h2 class="section-title reveal">Education</h2>
+    <div class="edu-card reveal">
+      <div class="edu-top">
+        <div class="edu-degree">B.E. Computer Science and Engineering (Cyber Security)</div>
+        <div class="edu-years">2025 — 2029</div>
+      </div>
+      <div class="edu-school">Hindusthan College of Engineering and Technology</div>
+      <span class="edu-status">2nd Year · 3rd Semester — In Progress</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTIFICATIONS ============ -->
+<section class="section-pad" id="certifications">
+  <div class="wrap">
+    <div class="eyebrow reveal"><i class='bx bx-medal'></i><span class="sec-num">06 //</span>CERTIFICATIONS</div>
+    <h2 class="section-title reveal">Certifications</h2>
+    <div class="cert-grid row">
+      <div class="cert-card columns four reveal">
+        <div class="edu-degree" style="font-size:17px;">Certificate in Hardware and Networking</div>
+        <div class="edu-school">Aaron Computer Education, Tuticorin</div>
+        <div class="edu-school">29 April 2025 — 25 June 2025</div>
+        <div class="result">Result: 80% — First Class</div>
+        <div class="cert-topics">
+          <span>Operating Systems Fundamentals</span><span>Basics of Electronics</span>
+          <span>Assembling &amp; Troubleshooting</span><span>Software Skills</span><span>Computer Networking</span>
+        </div>
+      </div>
+      <div class="cert-card columns four reveal">
+        <div class="edu-degree" style="font-size:17px;">Network Security</div>
+        <div class="edu-school">Great Learning</div>
+        <div class="edu-school">Completed: 29 September 2025</div>
+      </div>
+      <div class="cert-card columns four reveal">
+        <div class="edu-degree" style="font-size:17px;">Hindi Prachar Sabha — Final Certificate</div>
+        <div class="edu-school">Dakshina Bharat Hindi Prachar Sabha</div>
+        <div class="edu-school">Equivalent to B.A. in Hindi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEADERSHIP ============ -->
+<section class="section-pad" id="leadership" style="background:var(--bg-elevated);">
+  <div class="wrap">
+    <div class="eyebrow reveal"><i class='bx bx-group'></i><span class="sec-num">07 //</span>LEADERSHIP</div>
+    <h2 class="section-title reveal">Leadership &amp; Activities</h2>
+    <div class="lead-grid">
+      <div class="lead-card reveal">
+        <h3>Co-Founder — Cybroatrix</h3>
+        <p>Helped establish and grow a cybersecurity learning community.</p>
+        <ul>
+          <li>Connecting with people interested in cybersecurity</li>
+          <li>Helping bring learners together</li>
+          <li>Supporting collaborative learning</li>
+          <li>Helping grow the community</li>
+          <li>Supporting the community's digital presence</li>
+          <li>Planning future workshops and cybersecurity activities</li>
+        </ul>
+      </div>
+    </div>
+    <div class="strength-row reveal">
+      <div class="strength-chip">Leadership</div>
+      <div class="strength-chip">Teamwork</div>
+      <div class="strength-chip">Quick Learner</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LANGUAGES ============ -->
+<section class="section-pad" style="padding-top:0;">
+  <div class="wrap">
+    <div class="eyebrow reveal"><i class='bx bx-globe'></i><span class="sec-num">08 //</span>LANGUAGES</div>
+    <div class="lang-row reveal">
+      <span class="lang-pill">Tamil</span>
+      <span class="lang-pill">English</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUTURE DIRECTION ============ -->
+<section class="section-pad" style="background:var(--bg-elevated);">
+  <div class="wrap">
+    <div class="eyebrow reveal"><i class='bx bx-compass'></i><span class="sec-num">09 //</span>ROADMAP</div>
+    <h2 class="section-title reveal">What's Next?</h2>
+    <p class="section-sub reveal">Goals I'm working toward — not achievements yet claimed.</p>
+    <div class="next-grid">
+      <div class="next-item reveal"><span class="ico">→</span>Strengthen cybersecurity fundamentals</div>
+      <div class="next-item reveal"><span class="ico">→</span>Progress through TryHackMe</div>
+      <div class="next-item reveal"><span class="ico">→</span>Build hands-on cybersecurity projects</div>
+      <div class="next-item reveal"><span class="ico">→</span>Learn more about ethical hacking &amp; pentesting</div>
+      <div class="next-item reveal"><span class="ico">→</span>Participate in CTF challenges</div>
+      <div class="next-item reveal"><span class="ico">→</span>Create educational CTF write-ups</div>
+      <div class="next-item reveal"><span class="ico">→</span>Conduct workshops through Cybroatrix</div>
+      <div class="next-item reveal"><span class="ico">→</span>Explore new technologies</div>
+      <div class="next-item reveal"><span class="ico">→</span>Publish more security-focused projects</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GITHUB ============ -->
+<section class="section-pad">
+  <div class="wrap">
+    <div class="gh-card reveal">
+      <div class="eyebrow" style="justify-content:center;"><i class='bx bxl-github'></i><span class="sec-num">10 //</span>GITHUB</div>
+      <h2 class="section-title" style="margin-bottom:0;">GitHub</h2>
+      <p>Building in public. More projects and experiments are on the way — this profile will grow alongside my learning.</p>
+      <a href="https://github.com/anandsekar-404" target="_blank" rel="noopener" class="btn btn-primary">Visit GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section-pad" id="contact" style="background:var(--bg-elevated);">
+  <div class="wrap">
+    <div class="eyebrow reveal"><i class='bx bx-envelope'></i><span class="sec-num">11 //</span>CONTACT</div>
+    <h2 class="section-title reveal">Contact</h2>
+    <p class="term-comment reveal">// Want to collaborate, ask a question, or just talk security?</p>
+    <div class="contact-links reveal">
+      <a href="https://github.com/anandsekar-404" target="_blank" rel="noopener"><span class="ico"><i class='bx bxl-github'></i></span> github.com/anandsekar-404</a>
+      <a href="https://www.linkedin.com/in/anand1802" target="_blank" rel="noopener"><span class="ico"><i class='bx bxl-linkedin-square'></i></span> linkedin.com/in/anand1802</a>
+      <a href="https://cybroatrix.com/" target="_blank" rel="noopener"><span class="ico"><i class='bx bx-diamond'></i></span> cybroatrix.com</a>
+      <span class="placeholder"><span class="ico"><i class='bx bx-envelope'></i></span> your.email@example.com — placeholder</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="row foot-grid">
+      <div class="columns six">
+        <div class="foot-brand">Anand Sekar</div>
+        <div class="foot-role">Cybersecurity Student · Builder · Learner</div>
+      </div>
+      <div class="columns six" style="text-align:right;">
+        <div class="foot-links" style="justify-content:flex-end;">
+          <a href="https://github.com/anandsekar-404" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/anand1802" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://cybroatrix.com/" target="_blank" rel="noopener">Cybroatrix</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-msg">Built while learning. Improved with every project.</div>
+  </div>
+</footer>
+
+<!-- Safety net: everything below the hero uses class="reveal" (opacity:0 until
+     main.js's IntersectionObserver adds "in" on scroll). This inline script has
+     zero external dependencies — unlike main.js, it can't fail to load over the
+     network. It only acts if main.js genuinely never ran (window.__revealReady
+     stays unset) — if main.js loaded fine, this does nothing, so normal scroll
+     reveals are never short-circuited just because someone hasn't scrolled yet. -->
+<script>
+setTimeout(function(){
+  if (window.__revealReady) return;
+  var els = document.querySelectorAll('.reveal:not(.in)');
+  for (var i = 0; i < els.length; i++){ els[i].className += ' in'; }
+}, 2500);
+</script>
+
+<!-- Animation libraries (CDN) -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+<!-- Site scripts — main.js must load before animations.js (defines prefersReduced) -->
+<script src="js/main.js"></script>
+<script src="js/animations.js"></script>
+</body>
+</html>
